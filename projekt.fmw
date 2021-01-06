@@ -3,31 +3,32 @@
 #    Command-line to run this workspace:
 #        "C:\Program Files\FME\fme.exe" "C:\Users\faxe\Desktop\geoinformatyka\V semestr\Bazy Danych Przestrznnych\projekt\projekt.fmw"
 #              --SourceDataset_SHAPEFILE "C:\Users\faxe\Desktop\geoinformatyka\V semestr\Bazy Danych Przestrznnych\projekt\Powiaty\Powiaty.shp"
-#              --e-mail ""
-#              --hasło ""
-#              --e-mail2 ""
+#              --e-mail "projektfme@gmail.com"
+#              --hasło "1Qaz1Qaz"
+#              --e-mail2 "tvfaxe@gmail.com"
 #              --nazwa-powiatu "krakowski"
-#              --data_początek "20201201"
-#              --data_koniec "20201208"
-#              --cloud_coverage "70"
+#              --data_początek "20201229"
+#              --data_koniec "20210103"
+#              --cloud_coverage "50"
 #              --DestDataset_CSV2 "C:\Users\faxe\Desktop\geoinformatyka\V semestr\Bazy Danych Przestrznnych\projekt\Powiaty"
 #              --DestDataset_TIFF "C:\Users\faxe\Desktop\geoinformatyka\V semestr\Bazy Danych Przestrznnych\projekt\Powiaty"
+#              --DestDataset_GEOJSON "C:\Users\faxe\Desktop\geoinformatyka\V semestr\Bazy Danych Przestrznnych\projekt\Powiaty\log.json"
 #    
 #!   ATTR_TYPE_ENCODING="SDF"
-#!   BEGIN_PYTHON=""
+#!   BEGIN_PYTHON="import&lt;space&gt;smtplib&lt;lf&gt;import&lt;space&gt;fme&lt;lf&gt;import&lt;space&gt;os&lt;lf&gt;import&lt;space&gt;datetime&lt;lf&gt;from&lt;space&gt;email.mime.text&lt;space&gt;import&lt;space&gt;MIMEText&lt;lf&gt;from&lt;space&gt;email.mime.base&lt;space&gt;import&lt;space&gt;MIMEBase&lt;lf&gt;from&lt;space&gt;email.mime.multipart&lt;space&gt;import&lt;space&gt;MIMEMultipart&lt;lf&gt;from&lt;space&gt;email&lt;space&gt;import&lt;space&gt;encoders&lt;lf&gt;&lt;lf&gt;e-mail&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;e-mail&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;haslo&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;has&lt;u0142&gt;o&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;e-mail2&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;e-mail2&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;powiat&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;nazwa-powiatu&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;start&lt;space&gt;=&lt;space&gt;datetime.datetime.now&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;startup&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;start&lt;lf&gt;subject&lt;space&gt;=&lt;space&gt;&lt;apos&gt;Informacja&lt;space&gt;-&lt;space&gt;FME&lt;apos&gt;&lt;lf&gt;host&lt;space&gt;=&lt;space&gt;&lt;apos&gt;smtp.gmail.com&lt;apos&gt;&lt;lf&gt;port&lt;space&gt;=&lt;space&gt;587&lt;lf&gt;&lt;lf&gt;msg&lt;space&gt;=&lt;space&gt;MIMEMultipart&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;From&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;e-mail&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;To&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;e-mail2&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;Subject&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;subject&lt;lf&gt;&lt;lf&gt;body&lt;space&gt;=&lt;space&gt;&lt;apos&gt;Drogi&lt;space&gt;uzytkowniku&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;space&gt;o&lt;space&gt;godzinie&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;space&gt;rozpoczeto&lt;space&gt;przetwarzanie&lt;space&gt;danych&lt;space&gt;dla:&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;.&lt;apos&gt;.format&lt;openparen&gt;e-mail2&lt;comma&gt;&lt;space&gt;start&lt;comma&gt;&lt;space&gt;powiat&lt;closeparen&gt;&lt;lf&gt;msg.attach&lt;openparen&gt;MIMEText&lt;openparen&gt;body&lt;comma&gt;&lt;space&gt;&lt;apos&gt;plain&lt;apos&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;text&lt;space&gt;=&lt;space&gt;msg.as_string&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;server&lt;space&gt;=&lt;space&gt;smtplib.SMTP&lt;openparen&gt;host&lt;comma&gt;&lt;space&gt;port&lt;closeparen&gt;&lt;lf&gt;server.starttls&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;server.login&lt;openparen&gt;e-mail&lt;comma&gt;&lt;space&gt;haslo&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;try:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;server.sendmail&lt;openparen&gt;e-mail&lt;comma&gt;&lt;space&gt;e-mail2&lt;comma&gt;&lt;space&gt;text&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;print&lt;openparen&gt;&lt;apos&gt;Wiadomosc&lt;space&gt;wyslana&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;except:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;print&lt;space&gt;&lt;openparen&gt;&lt;apos&gt;Wiadomosc&lt;space&gt;nie&lt;space&gt;wyslana&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;server.quit&lt;openparen&gt;&lt;closeparen&gt;"
 #!   BEGIN_TCL=""
 #!   CATEGORY=""
 #!   DESCRIPTION=""
 #!   DESTINATION="NONE"
 #!   DESTINATION_ROUTING_FILE=""
-#!   DOC_EXTENTS="6032.4 951.527"
+#!   DOC_EXTENTS="6061.5 1461.53"
 #!   DOC_TOP_LEFT="-1100.01 -1656.01"
-#!   END_PYTHON=""
+#!   END_PYTHON="import&lt;space&gt;smtplib&lt;lf&gt;import&lt;space&gt;fme&lt;lf&gt;import&lt;space&gt;os&lt;lf&gt;import&lt;space&gt;json&lt;lf&gt;import&lt;space&gt;datetime&lt;lf&gt;from&lt;space&gt;email.mime.text&lt;space&gt;import&lt;space&gt;MIMEText&lt;lf&gt;from&lt;space&gt;email.mime.base&lt;space&gt;import&lt;space&gt;MIMEBase&lt;lf&gt;from&lt;space&gt;email.mime.multipart&lt;space&gt;import&lt;space&gt;MIMEMultipart&lt;lf&gt;from&lt;space&gt;email&lt;space&gt;import&lt;space&gt;encoders&lt;lf&gt;&lt;lf&gt;status&lt;space&gt;=&lt;space&gt;fme.status&lt;lf&gt;errorMsg&lt;space&gt;=&lt;space&gt;fme.failureMessage&lt;lf&gt;logFile&lt;space&gt;=&lt;space&gt;fme.logFileName&lt;lf&gt;&lt;lf&gt;e-mail&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;e-mail&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;haslo&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;has&lt;u0142&gt;o&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;e-mail2&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;e-mail2&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;powiat&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;nazwa-powiatu&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;start&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;startup&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;koniec&lt;space&gt;=&lt;space&gt;datetime.datetime.now&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;shutdown&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;koniec&lt;lf&gt;czas&lt;space&gt;=&lt;space&gt;koniec&lt;space&gt;-&lt;space&gt;start&lt;lf&gt;host&lt;space&gt;=&lt;space&gt;&lt;apos&gt;smtp.gmail.com&lt;apos&gt;&lt;lf&gt;port&lt;space&gt;=&lt;space&gt;587&lt;lf&gt;subject&lt;space&gt;=&lt;space&gt;&lt;apos&gt;BDP&lt;space&gt;-&lt;space&gt;wiadomosc&lt;space&gt;koncowa&lt;space&gt;procesu&lt;space&gt;w&lt;space&gt;FME&lt;apos&gt;&lt;lf&gt;tiff&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;DestDataset_GEOTIFF&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;csv&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;DestDataset_CSV2&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;log&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;apos&gt;DestDataset_JSON&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;lf&gt;msg&lt;space&gt;=&lt;space&gt;MIMEMultipart&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;From&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=e-mail&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;To&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;e-mail2&lt;lf&gt;msg&lt;openbracket&gt;&lt;apos&gt;Subject&lt;apos&gt;&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;subject&lt;lf&gt;&lt;lf&gt;if&lt;space&gt;status&lt;space&gt;&lt;space&gt;==&lt;space&gt;0:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;body&lt;space&gt;=&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Drogi&lt;space&gt;u&lt;u017c&gt;ytkowniku&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;comma&gt;&lt;lf&gt;&lt;lf&gt;Przetwarzanie&lt;space&gt;danych&lt;space&gt;nie&lt;space&gt;powiod&lt;u0142&gt;o&lt;space&gt;si&lt;u0119&gt;&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;.&lt;space&gt;&lt;lf&gt;&lt;lf&gt;Przetwarzanie&lt;space&gt;trwalo&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;.&lt;lf&gt;&lt;lf&gt;Plik&lt;space&gt;z&lt;space&gt;logami&lt;space&gt;jako&lt;space&gt;za&lt;u0142&gt;&lt;u0105&gt;cznik.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;Z&lt;space&gt;powazaniem&lt;comma&gt;&lt;lf&gt;Kacper&lt;space&gt;Py&lt;u015b&gt;niak&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;.format&lt;openparen&gt;e-mail2&lt;comma&gt;powiat&lt;comma&gt;czas&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;MIMEText&lt;openparen&gt;body&lt;comma&gt;&lt;space&gt;&lt;apos&gt;plain&lt;apos&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;logii&lt;space&gt;=&lt;space&gt;MIMEText&lt;openparen&gt;json.dumps&lt;openparen&gt;log&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;logii.add_header&lt;openparen&gt;&lt;quote&gt;Content-Disposition&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;attachment&lt;semicolon&gt;&lt;space&gt;filename=logi.json&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;logii&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;elif&lt;space&gt;status&lt;space&gt;==&lt;space&gt;1:&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;body&lt;space&gt;=&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Drogi&lt;space&gt;u&lt;u017c&gt;ytkowniku&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;comma&gt;&lt;lf&gt;&lt;lf&gt;O&lt;space&gt;godzinie&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;space&gt;zakonczono&lt;space&gt;przetwarzanie&lt;space&gt;danych&lt;space&gt;dla&lt;space&gt;powiat&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;.&lt;space&gt;&lt;lf&gt;&lt;lf&gt;Przetwarzanie&lt;space&gt;trwalo&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;.&lt;space&gt;&lt;lf&gt;&lt;lf&gt;Plik&lt;space&gt;z&lt;space&gt;obliczonym&lt;space&gt;NDVI&lt;space&gt;dla&lt;space&gt;powiat&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;space&gt;oraz&lt;space&gt;statystyki&lt;space&gt;w&lt;space&gt;zalacznikach.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;Z&lt;space&gt;powa&lt;u017c&gt;aniem&lt;comma&gt;&lt;lf&gt;Kacper&lt;space&gt;Py&lt;u015b&gt;niak&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;.format&lt;openparen&gt;e-mail2&lt;comma&gt;teraz&lt;comma&gt;powiat&lt;comma&gt;czas&lt;comma&gt;powiat&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;MIMEText&lt;openparen&gt;body&lt;comma&gt;&lt;space&gt;&lt;apos&gt;plain&lt;apos&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;tifff&lt;space&gt;=&lt;space&gt;open&lt;openparen&gt;tiff+r&lt;quote&gt;&lt;backslash&gt;Powiat.tif&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;rb&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part&lt;space&gt;=&lt;space&gt;MIMEBase&lt;openparen&gt;&lt;quote&gt;application&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;octet-stream&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part.set_payload&lt;openparen&gt;tifff.read&lt;openparen&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;encoders.encode_base64&lt;openparen&gt;part&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part.add_header&lt;openparen&gt;&lt;quote&gt;Content-Disposition&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;attachment&lt;semicolon&gt;&lt;space&gt;filename=Powiat.tif&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;part&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;csvv&lt;space&gt;=&lt;space&gt;open&lt;openparen&gt;csv+r&lt;quote&gt;&lt;backslash&gt;Powiat_statystyki.csv&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;rb&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part2&lt;space&gt;=&lt;space&gt;MIMEBase&lt;openparen&gt;&lt;quote&gt;application&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;vnd.ms-excel&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part2.set_payload&lt;openparen&gt;csvv.read&lt;openparen&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;encoders.encode_base64&lt;openparen&gt;part2&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;part2.add_header&lt;openparen&gt;&lt;quote&gt;Content-Disposition&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;attachment&lt;semicolon&gt;&lt;space&gt;&lt;space&gt;filename=Powiat_statystyki.csv&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;msg.attach&lt;openparen&gt;part2&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;text&lt;space&gt;=&lt;space&gt;msg.as_string&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;server&lt;space&gt;=&lt;space&gt;smtplib.SMTP&lt;openparen&gt;host&lt;comma&gt;&lt;space&gt;port&lt;closeparen&gt;&lt;lf&gt;server.starttls&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;server.login&lt;openparen&gt;e-mail&lt;comma&gt;&lt;space&gt;haslo&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;try:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;server.sendmail&lt;openparen&gt;e-mail&lt;comma&gt;&lt;space&gt;e-mail2&lt;comma&gt;&lt;space&gt;text&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;print&lt;openparen&gt;&lt;apos&gt;Wiadomosc&lt;space&gt;koncowa&lt;space&gt;wys&lt;u0142&gt;ana&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;except:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;print&lt;space&gt;&lt;openparen&gt;&lt;apos&gt;Wiadomosc&lt;space&gt;koncowa&lt;space&gt;nie&lt;space&gt;wys&lt;u0142&gt;a&lt;u0142&gt;ana&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;server.quit&lt;openparen&gt;&lt;closeparen&gt;"
 #!   END_TCL=""
 #!   EXPLICIT_BOOKMARK_ORDER="false"
 #!   FME_BUILD_NUM="19817"
-#!   FME_DOCUMENT_GUID="bc867740-a383-40cd-b98c-3eef2d013708"
-#!   FME_DOCUMENT_PRIORGUID="730a93f5-f61d-41da-9e59-76a94fb02864,c1a16e41-ae7b-47e6-83b9-cfc344c1ad35,b7c19885-f375-4b45-966c-9c0ca20e72cb"
+#!   FME_DOCUMENT_GUID="63dc47fb-fef4-4952-abad-db142c8ce735"
+#!   FME_DOCUMENT_PRIORGUID="730a93f5-f61d-41da-9e59-76a94fb02864,c1a16e41-ae7b-47e6-83b9-cfc344c1ad35,b7c19885-f375-4b45-966c-9c0ca20e72cb,bc867740-a383-40cd-b98c-3eef2d013708"
 #!   FME_GEOMETRY_HANDLING="Enhanced"
 #!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
 #!   FME_REPROJECTION_ENGINE="FME"
@@ -36,7 +37,7 @@
 #!   HISTORY=""
 #!   IGNORE_READER_FAILURE="No"
 #!   LAST_SAVE_BUILD="FME(R) 2019.2.2.0 (20200103 - Build 19817 - WIN64)"
-#!   LAST_SAVE_DATE="2021-01-06T21:26:26"
+#!   LAST_SAVE_DATE="2021-01-06T22:21:00"
 #!   LOG_FILE=""
 #!   LOG_MAX_RECORDED_FEATURES="200"
 #!   MARKDOWN_DESCRIPTION=""
@@ -55,10 +56,10 @@
 #!   TITLE=""
 #!   USAGE=""
 #!   USE_MARKDOWN=""
-#!   VIEW_POSITION="2212.89 -824.266"
+#!   VIEW_POSITION="1609.57 -772.48"
 #!   WARN_INVALID_XFORM_PARAM="Yes"
 #!   WORKSPACE_VERSION="1"
-#!   ZOOM_SCALE="101"
+#!   ZOOM_SCALE="89"
 #! >
 #! <DATASETS>
 #! <DATASET
@@ -239,6 +240,49 @@
 #! <METAFILE_PARAMETER
 #!   NAME="WRITER_DATASET_HINT"
 #!   VALUE="Specify a folder for the TIFF file"
+#! />
+#! </DATASET>
+#! <DATASET
+#!   IS_SOURCE="false"
+#!   ROLE="WRITER"
+#!   FORMAT="GEOJSON"
+#!   DATASET="$(DestDataset_GEOJSON)"
+#!   KEYWORD="GEOJSON_1"
+#!   MULTI_GEOM_ALLOWED="true"
+#!   ATTR_MAX_LENGTH="600"
+#!   ATTR_CASE="ANY"
+#!   ALLOWED_FEAT_TYPES=""
+#!   WRITE_DEFS="true"
+#!   DEFLINE_TEMPLATE=""
+#!   DEFLINE_ATTRS="true"
+#!   EXPOSABLE_ATTRS="fme_rotation float fme_fill_color string fme_dataset string fme_secondary_axis float fme_basename string fme_text_size float fme_text_string string fme_color string fme_primary_axis float fme_feature_type string fme_type string fme_sweep_angle float fme_start_angle float fme_geometry string"
+#!   DEFLINE_PARMS=""
+#!   ATTR_INDEX_TYPES=""
+#!   ATTR_NAME_INVALID_CHARS=""
+#!   SUPPORTS_FEATURE_TYPE_FANOUT="true"
+#!   ENABLED="true"
+#!   DYNAMIC_FEATURE_TYPES_LIST_ON_MERGE="true"
+#!   DATASET_TYPE="FILE"
+#!   GENERATE_FME_BUILD_NUM="19817"
+#!   COORDSYS=""
+#!   FANOUT_EXPRESSION=""
+#!   FANOUT_GROUP="NO"
+#! >
+#! <METAFILE_PARAMETER
+#!   NAME="DATASET_NAME"
+#!   VALUE="json file"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="MIME_TYPE"
+#!   VALUE="application/geo+json ADD_DISPOSITION"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="READER_DATASET_HINT"
+#!   VALUE="Select the GeoJSON file(s) or type the GeoJSON URL"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="WRITER_DATASET_HINT"
+#!   VALUE="Specify a name for the GeoJSON file"
 #! />
 #! </DATASET>
 #! </DATASETS>
@@ -653,6 +697,144 @@
 #! />
 #! <DATA_TYPE
 #!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_binarybuffer"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_xml"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_varbinary(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="boolean"
+#!   FME_TYPE="fme_boolean"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_binary(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_date"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="float"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="float"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_uint64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int16"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint16"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int8"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint8"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_decimal(width,decimal)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
 #!   FORMAT_TYPE="char(width)"
 #!   FME_TYPE="fme_varchar(width)"
 #!   FORMAT="TIFF"
@@ -997,6 +1179,96 @@
 #! />
 #! <GEOM_TYPE
 #!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_point"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_polygon"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_text"
+#!   FME_TYPE="fme_text"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_ellipse"
+#!   FME_TYPE="fme_ellipse"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_arc"
+#!   FME_TYPE="fme_arc"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_rectangle"
+#!   FME_TYPE="fme_rectangle"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_rounded_rectangle"
+#!   FME_TYPE="fme_rounded_rectangle"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_raster"
+#!   FME_TYPE="fme_raster"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_no_geom"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_collection"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_solid"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_polygon"
+#!   FME_TYPE="fme_point_cloud"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json_no_geom"
+#!   FME_TYPE="fme_feature_table"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
 #!   FORMAT_TYPE="tiff_raster"
 #!   FME_TYPE="fme_raster"
 #!   FORMAT="TIFF"
@@ -1146,14 +1418,14 @@
 #! </FEATURE_TYPE>
 #! <FEATURE_TYPE
 #!   IS_SOURCE="false"
-#!   NODE_NAME="Powiaty"
+#!   NODE_NAME="Powiat_statystyki"
 #!   FEATURE_TYPE_NAME=""
 #!   FEATURE_TYPE_NAME_QUALIFIER=""
 #!   IS_EDITABLE="false"
 #!   IDENTIFIER="24"
 #!   FEAT_GEOMTYPE="All"
 #!   POSITION="4478.388512885128 -1222.5110251102508"
-#!   BOUNDING_RECT="4478.388512885128 -1222.5110251102508 454 71"
+#!   BOUNDING_RECT="4478.388512885128 -1222.5110251102508 483.09999999999997 71"
 #!   ORDER="500000000000040"
 #!   COLLAPSED="false"
 #!   KEYWORD="CSV2_1"
@@ -1161,10 +1433,10 @@
 #!   ENABLED="true"
 #!   SCHEMA_ATTRIBUTE_SOURCE="0"
 #! >
-#!     <FEAT_ATTRIBUTE ATTR_NAME="fme_basename" ATTR_TYPE="string"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="_clipped" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="band0.min" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="band0.stdev" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="fme_basename" ATTR_TYPE="string"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="csv_dataset_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="csv_existing_file_handling" PARM_VALUE="Yes"/>
 #!     <DEFLINE_PARM PARM_NAME="csv_fields_group" PARM_VALUE=""/>
@@ -1172,14 +1444,14 @@
 #! </FEATURE_TYPE>
 #! <FEATURE_TYPE
 #!   IS_SOURCE="false"
-#!   NODE_NAME="Powiaty"
+#!   NODE_NAME="Powiat"
 #!   FEATURE_TYPE_NAME=""
 #!   FEATURE_TYPE_NAME_QUALIFIER=""
 #!   IS_EDITABLE="false"
 #!   IDENTIFIER="25"
 #!   FEAT_GEOMTYPE="All"
 #!   POSITION="3865.1011300112996 -1528.9179391793919"
-#!   BOUNDING_RECT="3865.1011300112996 -1528.9179391793919 454 71"
+#!   BOUNDING_RECT="3865.1011300112996 -1528.9179391793919 430 71"
 #!   ORDER="500000000000042"
 #!   COLLAPSED="false"
 #!   KEYWORD="TIFF_1"
@@ -1187,8 +1459,8 @@
 #!   ENABLED="true"
 #!   SCHEMA_ATTRIBUTE_SOURCE="0"
 #! >
-#!     <FEAT_ATTRIBUTE ATTR_NAME="fme_basename" ATTR_TYPE="char(50)"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <FEAT_ATTRIBUTE ATTR_NAME="_clipped" ATTR_TYPE="char(200)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="fme_basename" ATTR_TYPE="char(50)"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="tiff_advanced_group" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="tiff_byte_order" PARM_VALUE="machine"/>
 #!     <DEFLINE_PARM PARM_NAME="tiff_calculate_minmax_tifftags" PARM_VALUE="no"/>
@@ -1212,6 +1484,34 @@
 #!     <DEFLINE_PARM PARM_NAME="tiff_tile_size_y" PARM_VALUE=""/>
 #!     <DEFLINE_PARM PARM_NAME="tiff_world_file_generation" PARM_VALUE="yes"/>
 #! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="Powiaty"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="33"
+#!   FEAT_GEOMTYPE="All"
+#!   POSITION="1593.3575177335927 -194.48724289223082"
+#!   BOUNDING_RECT="1593.3575177335927 -194.48724289223082 454 71"
+#!   ORDER="500000000000051"
+#!   COLLAPSED="false"
+#!   KEYWORD="GEOJSON_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="0"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log{}.message" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log{}.level" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log{}.number" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log{}.time" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log{}.cpu_time" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log.message" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log.level" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log.number" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log.time" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="_log.cpu_time" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
 #! </FEATURE_TYPES>
 #! <FMESERVER>
 #! <READER_DATASETS>
@@ -1222,6 +1522,11 @@
 #! />
 #! </READER_DATASETS>
 #! <WRITER_DATASETS>
+#! <DATASET 
+#!   NAME="GEOJSON_1"
+#!   OVERRIDE="-GEOJSON_1_DATASET"
+#!   DATASET="GEOJSON_1/log.json"
+#! />
 #! <DATASET 
 #!   NAME="CSV2_1"
 #!   OVERRIDE="-CSV2_1_DATASET"
@@ -1242,17 +1547,17 @@
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL TEXT e-mail Adres e-mail:"
-#!   DEFAULT_VALUE=""
+#!   DEFAULT_VALUE="projektfme@gmail.com"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL TEXT hasło e-mail hasło:"
-#!   DEFAULT_VALUE=""
+#!   DEFAULT_VALUE="1Qaz1Qaz"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL TEXT e-mail2 Podaj adres, na któryzostaną wysłanepowiadomienia:"
-#!   DEFAULT_VALUE=""
+#!   DEFAULT_VALUE="tvfaxe@gmail.com"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
@@ -1262,17 +1567,17 @@
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL DATE data_początek &quot;{}&quot; Podaj datę początkową:"
-#!   DEFAULT_VALUE="20201201"
+#!   DEFAULT_VALUE="20201229"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL DATE_OR_ATTR data_koniec &quot;{}&quot; Podaj datę końcową:"
-#!   DEFAULT_VALUE="20201208"
+#!   DEFAULT_VALUE="20210103"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI OPTIONAL TEXT_OR_ATTR cloud_coverage maksymalne pokrycie chmurami (parametr cloud coverage dla zobrazowaniaw [%]):"
-#!   DEFAULT_VALUE="70"
+#!   DEFAULT_VALUE="50"
 #!   IS_STAND_ALONE="true"
 #! />
 #! <GLOBAL_PARAMETER
@@ -1283,6 +1588,11 @@
 #! <GLOBAL_PARAMETER
 #!   GUI_LINE="GUI DIRNAME DestDataset_TIFF Destination TIFF (Tagged Image File Format) Folder:"
 #!   DEFAULT_VALUE="$(FME_MF_DIR)Powiaty"
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI FILENAME DestDataset_GEOJSON GeoJSON_Files(*.json)|*.json|All_Files|* Destination GeoJSON File:"
+#!   DEFAULT_VALUE="$(FME_MF_DIR)Powiaty\log.json"
 #!   IS_STAND_ALONE="false"
 #! />
 #! </GLOBAL_PARAMETERS>
@@ -1748,6 +2058,50 @@
 #!     <XFORM_PARM PARM_NAME="platform" PARM_VALUE="Sentinel-2"/>
 #!     <XFORM_PARM PARM_NAME="zip_output" PARM_VALUE="$(FME_MF_DIR)sentinel.zip"/>
 #! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="32"
+#!   TYPE="LogMessageStreamer"
+#!   VERSION="0"
+#!   POSITION="596.54061887153512 -393.56829211856461"
+#!   BOUNDING_RECT="596.54061887153512 -393.56829211856461 464.09999999999997 71"
+#!   ORDER="500000000000049"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="19817"
+#! >
+#!     <OUTPUT_FEAT NAME="LOGFILE"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_log{}.message" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.level" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.time" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.cpu_time" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log.message" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log.level" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log.number" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log.time" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_log.cpu_time" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="LOGGER"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="_log{}.message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.level" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.number" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.time" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log{}.cpu_time" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log.message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log.level" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log.number" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log.time" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_log.cpu_time" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="CAPTURE_FROM" PARM_VALUE="Logfile Logger"/>
+#!     <XFORM_PARM PARM_NAME="CONFIGURE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MAX_MESSAGES_PER_FEATURE" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="MESSAGE_LEVELS" PARM_VALUE="INFORM STATRP STATS WARN ERROR FATAL"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_ATTRIBUTE_NAME" PARM_VALUE="_log"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_SETTINGS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="LogMessageStreamer"/>
+#! </TRANSFORMER>
 #! </TRANSFORMERS>
 #! <FEAT_LINKS>
 #! <FEAT_LINK
@@ -1756,6 +2110,17 @@
 #!   TARGET_NODE="4"
 #!   SOURCE_PORT_DESC="-1"
 #!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="34"
+#!   SOURCE_NODE="32"
+#!   TARGET_NODE="33"
+#!   SOURCE_PORT_DESC="fo 0 LOGFILE"
+#!   TARGET_PORT_DESC="-1"
 #!   ENABLED="true"
 #!   EXECUTION_IDX="0"
 #!   HIDDEN="false"
@@ -6055,30 +6420,33 @@
 #! </WORKSPACE>
 
 FME_PYTHON_VERSION 37
-GUI IGNORE SourceDataset_SHAPEFILE_1,SHAPEFILE_IN_READER_PARAMETERS_SHAPEFILE_1,SHAPEFILE_IN_ENCODING_SHAPEFILE_1,SHAPEFILE_IN_USE_SEARCH_ENVELOPE_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MINX_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MINY_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MAXX_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MAXY_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_SHAPEFILE_1,SHAPEFILE_IN_CLIP_TO_ENVELOPE_SHAPEFILE_1,SHAPEFILE_IN_ADVANCED_SHAPEFILE_1,SHAPEFILE_IN_TRIM_PRECEDING_SPACES_SHAPEFILE_1,SHAPEFILE_IN_READ_BLANK_AS_SHAPEFILE_1,SHAPEFILE_IN_DONUT_DETECTION_SHAPEFILE_1,SHAPEFILE_IN_MEASURES_AS_Z_SHAPEFILE_1,SHAPEFILE_IN_REPORT_BAD_GEOMETRY_SHAPEFILE_1,SHAPEFILE_IN_NETWORK_AUTHENTICATION_SHAPEFILE_1,DestDataset_CSV2_1,CSV2_OUT_DATASET_GROUP_CSV2_1,CSV2_OUT_EXTENSION_CSV2_1,CSV2_OUT_FIELDS_GROUP_CSV2_1,CSV2_OUT_DELIMITER_CSV2_1,CSV2_OUT_ENCODING_GROUP_CSV2_1,CSV2_OUT_ENCODING_CSV2_1,CSV2_OUT_WRITE_BOM_FOR_UNICODE_CSV2_1,CSV2_OUT_ADVANCED_GROUP_CSV2_1,CSV2_OUT_QUALIFY_FIELD_NAMES_CSV2_1,CSV2_OUT_QUALIFY_FIELD_VALUES_CSV2_1,CSV2_OUT_UNQUALIFIED_FIELD_VALUE_HANDLING_CSV2_1,CSV2_OUT_FIELD_QUALIFIER_CHARACTER_CSV2_1,CSV2_OUT_FIELD_QUALIFIER_ESCAPE_CHARACTER_CSV2_1,CSV2_OUT_ROW_TERMINATION_CSV2_1,CSV2_OUT_WRITE_SCHEMA_FILE_CSV2_1,CSV2_OUT_EXISTING_SCHEMA_FILE_HANDLING_CSV2_1,DestDataset_TIFF_1
+GUI IGNORE SourceDataset_SHAPEFILE_1,SHAPEFILE_IN_READER_PARAMETERS_SHAPEFILE_1,SHAPEFILE_IN_ENCODING_SHAPEFILE_1,SHAPEFILE_IN_USE_SEARCH_ENVELOPE_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MINX_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MINY_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MAXX_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_MAXY_SHAPEFILE_1,SHAPEFILE_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_SHAPEFILE_1,SHAPEFILE_IN_CLIP_TO_ENVELOPE_SHAPEFILE_1,SHAPEFILE_IN_ADVANCED_SHAPEFILE_1,SHAPEFILE_IN_TRIM_PRECEDING_SPACES_SHAPEFILE_1,SHAPEFILE_IN_READ_BLANK_AS_SHAPEFILE_1,SHAPEFILE_IN_DONUT_DETECTION_SHAPEFILE_1,SHAPEFILE_IN_MEASURES_AS_Z_SHAPEFILE_1,SHAPEFILE_IN_REPORT_BAD_GEOMETRY_SHAPEFILE_1,SHAPEFILE_IN_NETWORK_AUTHENTICATION_SHAPEFILE_1,DestDataset_CSV2_1,CSV2_OUT_DATASET_GROUP_CSV2_1,CSV2_OUT_EXTENSION_CSV2_1,CSV2_OUT_FIELDS_GROUP_CSV2_1,CSV2_OUT_DELIMITER_CSV2_1,CSV2_OUT_ENCODING_GROUP_CSV2_1,CSV2_OUT_ENCODING_CSV2_1,CSV2_OUT_WRITE_BOM_FOR_UNICODE_CSV2_1,CSV2_OUT_ADVANCED_GROUP_CSV2_1,CSV2_OUT_QUALIFY_FIELD_NAMES_CSV2_1,CSV2_OUT_QUALIFY_FIELD_VALUES_CSV2_1,CSV2_OUT_UNQUALIFIED_FIELD_VALUE_HANDLING_CSV2_1,CSV2_OUT_FIELD_QUALIFIER_CHARACTER_CSV2_1,CSV2_OUT_FIELD_QUALIFIER_ESCAPE_CHARACTER_CSV2_1,CSV2_OUT_ROW_TERMINATION_CSV2_1,CSV2_OUT_WRITE_SCHEMA_FILE_CSV2_1,CSV2_OUT_EXISTING_SCHEMA_FILE_HANDLING_CSV2_1,DestDataset_TIFF_1,DestDataset_GEOJSON_1,GEOJSON_OUT_FME_GROUP_NAMED1_GEOJSON_1,GEOJSON_OUT_WRITER_CHARSET_GEOJSON_1,GEOJSON_OUT_WRITE_BOM_GEOJSON_1,GEOJSON_OUT_STRICT_SPEC_GEOJSON_1,GEOJSON_OUT_FME_GROUP_NAMED2_GEOJSON_1,GEOJSON_OUT_PRETTY_PRINT_GEOJSON_1,GEOJSON_OUT_INDENT_SIZE_GEOJSON_1,GEOJSON_OUT_MAX_COORDINATE_PRECISION_GEOJSON_1,GEOJSON_OUT_FME_GROUP_NAMED3_GEOJSON_1,GEOJSON_OUT_COUNTER_CLOCKWISE_AREAS_GEOJSON_1,GEOJSON_OUT_WGS84_REPROJECTION_GEOJSON_1,GEOJSON_OUT_FME_GROUP_NAMED4_GEOJSON_1,GEOJSON_OUT_JSONP_FUNC_NAME_GEOJSON_1
 DEFAULT_MACRO SourceDataset_SHAPEFILE $(FME_MF_DIR)Powiaty\Powiaty.shp
 GUI MULTIFILE SourceDataset_SHAPEFILE Shapefiles(*.shp)|*.shp|Compressed_Shapefiles(*.shz)|*.shz|Compressed_Files(*.bz2;*.gz)|*.bz2;*.gz|Archive_Files(*.7z;*.7zip;*.rar;*.rvz;*.tar;*.tar.bz2;*.tar.gz;*.tgz;*.zip;*.zipx)|*.7z;*.7zip;*.rar;*.rvz;*.tar;*.tar.bz2;*.tar.gz;*.tgz;*.zip;*.zipx|All_Files(*)|* Source Esri Shapefile(s):
-DEFAULT_MACRO e-mail 
+DEFAULT_MACRO e-mail projektfme@gmail.com
 GUI OPTIONAL TEXT e-mail Adres e-mail:
-DEFAULT_MACRO hasło 
+DEFAULT_MACRO hasło 1Qaz1Qaz
 GUI OPTIONAL TEXT hasło e-mail hasło:
-DEFAULT_MACRO e-mail2 
+DEFAULT_MACRO e-mail2 tvfaxe@gmail.com
 GUI OPTIONAL TEXT e-mail2 Podaj adres, na któryzostaną wysłanepowiadomienia:
 DEFAULT_MACRO nazwa-powiatu krakowski
 GUI OPTIONAL TEXT nazwa-powiatu Podaj nazwe powiatu:
-DEFAULT_MACRO data_początek 20201201
+DEFAULT_MACRO data_początek 20201229
 GUI OPTIONAL DATE data_początek "{}" Podaj datę początkową:
-DEFAULT_MACRO data_koniec 20201208
+DEFAULT_MACRO data_koniec 20210103
 GUI OPTIONAL DATE data_koniec "{}" Podaj datę końcową:
-DEFAULT_MACRO cloud_coverage 70
+DEFAULT_MACRO cloud_coverage 50
 GUI OPTIONAL TEXT cloud_coverage maksymalne pokrycie chmurami (parametr cloud coverage dla zobrazowaniaw [%]):
 DEFAULT_MACRO DestDataset_CSV2 $(FME_MF_DIR)Powiaty
 GUI DIRNAME DestDataset_CSV2 Destination CSV (Comma Separated Value) Folder:
 DEFAULT_MACRO DestDataset_TIFF $(FME_MF_DIR)Powiaty
 GUI DIRNAME DestDataset_TIFF Destination TIFF (Tagged Image File Format) Folder:
+DEFAULT_MACRO DestDataset_GEOJSON $(FME_MF_DIR)Powiaty\log.json
+GUI FILENAME DestDataset_GEOJSON GeoJSON_Files(*.json)|*.json|All_Files|* Destination GeoJSON File:
 INCLUDE [ if {{$(SourceDataset_SHAPEFILE)} == {}} { puts_real {Parameter 'SourceDataset_SHAPEFILE' must be given a value.}; exit 1; }; ]
 INCLUDE [ if {{$(DestDataset_CSV2)} == {}} { puts_real {Parameter 'DestDataset_CSV2' must be given a value.}; exit 1; }; ]
 INCLUDE [ if {{$(DestDataset_TIFF)} == {}} { puts_real {Parameter 'DestDataset_TIFF' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(DestDataset_GEOJSON)} == {}} { puts_real {Parameter 'DestDataset_GEOJSON' must be given a value.}; exit 1; }; ]
 #! START_HEADER
 #! START_WB_HEADER
 READER_TYPE MULTI_READER
@@ -6092,6 +6460,8 @@ MULTI_WRITER_TYPE{0} CSV2
 MULTI_WRITER_KEYWORD{0} CSV2_1
 MULTI_WRITER_TYPE{1} TIFF
 MULTI_WRITER_KEYWORD{1} TIFF_1
+MULTI_WRITER_TYPE{2} GEOJSON
+MULTI_WRITER_KEYWORD{2} GEOJSON_1
 #! END_WB_HEADER
 #! START_WB_HEADER
 MACRO WB_KEYWORD "SHAPEFILE_1"
@@ -6313,6 +6683,63 @@ TIFF_1_GENERATE_FME_BUILD_NUM 19817
 TIFF_1_DATASET "$(DestDataset_TIFF_1)"
 #! END_DEST_HEADER
 #! START_WB_HEADER
+MACRO WB_KEYWORD "GEOJSON_1"
+#! END_WB_HEADER
+#! START_DEST_HEADER GEOJSON GEOJSON_1
+#! END_DEST_HEADER
+#! START_WB_HEADER
+DEFAULT_MACRO DestDataset
+INCLUDE [ if {"$(DestDataset)" != ""} {                          \
+ puts {DEFAULT_MACRO DestDataset_GEOJSON_1 $(DestDataset)}         \
+ } ]
+#! END_WB_HEADER
+#! START_DEST_HEADER GEOJSON GEOJSON_1
+DEFAULT_MACRO DestDataset_GEOJSON_1 $(DestDataset_GEOJSON)
+GUI FILENAME DestDataset_GEOJSON_1 GeoJSON_Files(*.json)|*.json|All_Files|* Destination GeoJSON File:
+DEFAULT_MACRO GEOJSON_OUT_FME_GROUP_NAMED1_GEOJSON_1 
+GUI OPTIONAL DISCLOSUREGROUP GEOJSON_OUT_FME_GROUP_NAMED1_GEOJSON_1 GEOJSON_OUT_WRITER_CHARSET_GEOJSON_1%GEOJSON_OUT_WRITE_BOM_GEOJSON_1%GEOJSON_OUT_STRICT_SPEC_GEOJSON_1 Writer Parameters
+DEFAULT_MACRO GEOJSON_OUT_WRITER_CHARSET_GEOJSON_1 UTF-8
+GEOJSON_1_WRITER_CHARSET "$(GEOJSON_OUT_WRITER_CHARSET_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_WRITER_CHARSET_GEOJSON_1 UTF-8,UTF-8%UTF-16,UTF-16%UTF-16BE,UTF-16BE%UTF-16LE,UTF-16LE%UTF-32,UTF-32%UTF-32BE,UTF-32BE%UTF-32LE,UTF-32LE Output Character Set:
+DEFAULT_MACRO GEOJSON_OUT_WRITE_BOM_GEOJSON_1 No
+GEOJSON_1_WRITE_BOM "$(GEOJSON_OUT_WRITE_BOM_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_WRITE_BOM_GEOJSON_1 Yes,Yes%No,No Byte Order Marker:
+DEFAULT_MACRO GEOJSON_OUT_STRICT_SPEC_GEOJSON_1 Yes
+GEOJSON_1_STRICT_SPEC "$(GEOJSON_OUT_STRICT_SPEC_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_STRICT_SPEC_GEOJSON_1 Yes,Yes%No,No Fully Conform to the GeoJSON Grammar:
+DEFAULT_MACRO GEOJSON_OUT_FME_GROUP_NAMED2_GEOJSON_1 
+GUI OPTIONAL DISCLOSUREGROUP GEOJSON_OUT_FME_GROUP_NAMED2_GEOJSON_1 GEOJSON_OUT_PRETTY_PRINT_GEOJSON_1%GEOJSON_OUT_INDENT_SIZE_GEOJSON_1%GEOJSON_OUT_MAX_COORDINATE_PRECISION_GEOJSON_1 Formatting Parameters
+DEFAULT_MACRO GEOJSON_OUT_PRETTY_PRINT_GEOJSON_1 YES
+GEOJSON_1_PRETTY_PRINT "$(GEOJSON_OUT_PRETTY_PRINT_GEOJSON_1)"
+GUI ACTIVECHOICE_LOOKUP GEOJSON_OUT_PRETTY_PRINT_GEOJSON_1 Pretty<space>Print,YES%Linear,NO,GEOJSON_OUT_INDENT_SIZE_GEOJSON_1 Formatting Type:
+DEFAULT_MACRO GEOJSON_OUT_INDENT_SIZE_GEOJSON_1 0
+GEOJSON_1_INDENT_SIZE "$(GEOJSON_OUT_INDENT_SIZE_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_INDENT_SIZE_GEOJSON_1 Tabs,0%1<space>space,1%2<space>spaces,2%3<space>spaces,3%4<space>spaces,4%5<space>spaces,5%6<space>spaces,6%7<space>spaces,7%8<space>spaces,8 Indent Size:
+DEFAULT_MACRO GEOJSON_OUT_MAX_COORDINATE_PRECISION_GEOJSON_1 10
+GEOJSON_1_MAX_COORDINATE_PRECISION "$(GEOJSON_OUT_MAX_COORDINATE_PRECISION_GEOJSON_1)"
+GUI RANGE_SLIDER GEOJSON_OUT_MAX_COORDINATE_PRECISION_GEOJSON_1 1%15%0%ON Coordinate Precision (Maximum Number of Fractional Digits):
+DEFAULT_MACRO GEOJSON_OUT_FME_GROUP_NAMED3_GEOJSON_1 
+GUI OPTIONAL DISCLOSUREGROUP GEOJSON_OUT_FME_GROUP_NAMED3_GEOJSON_1 GEOJSON_OUT_COUNTER_CLOCKWISE_AREAS_GEOJSON_1%GEOJSON_OUT_WGS84_REPROJECTION_GEOJSON_1 Geometry
+DEFAULT_MACRO GEOJSON_OUT_COUNTER_CLOCKWISE_AREAS_GEOJSON_1 Yes
+GEOJSON_1_COUNTER_CLOCKWISE_AREAS "$(GEOJSON_OUT_COUNTER_CLOCKWISE_AREAS_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_COUNTER_CLOCKWISE_AREAS_GEOJSON_1 Yes,Yes%No,No Convert Areas to Counterclockwise:
+DEFAULT_MACRO GEOJSON_OUT_WGS84_REPROJECTION_GEOJSON_1 Yes
+GEOJSON_1_WGS84_REPROJECTION "$(GEOJSON_OUT_WGS84_REPROJECTION_GEOJSON_1)"
+GUI LOOKUP_CHOICE GEOJSON_OUT_WGS84_REPROJECTION_GEOJSON_1 Yes,Yes%No,No Reproject to WGS84:
+DEFAULT_MACRO GEOJSON_OUT_FME_GROUP_NAMED4_GEOJSON_1 
+GUI OPTIONAL DISCLOSUREGROUP GEOJSON_OUT_FME_GROUP_NAMED4_GEOJSON_1 GEOJSON_OUT_JSONP_FUNC_NAME_GEOJSON_1 JSONP
+DEFAULT_MACRO GEOJSON_OUT_JSONP_FUNC_NAME_GEOJSON_1 
+GEOJSON_1_JSONP_FUNC_NAME "$(GEOJSON_OUT_JSONP_FUNC_NAME_GEOJSON_1)"
+GUI OPTIONAL TEXT GEOJSON_OUT_JSONP_FUNC_NAME_GEOJSON_1 JSONP Function Name:
+# ============================================================================
+# Opt in for destination dataset type vs format type validation
+DEFAULT_MACRO GEOJSON_OUT_DESTINATION_DATASETTYPE_VALIDATION_GEOJSON_1 Yes
+GEOJSON_1_DESTINATION_DATASETTYPE_VALIDATION "$(GEOJSON_OUT_DESTINATION_DATASETTYPE_VALIDATION_GEOJSON_1)"
+# ============================================================================ 
+GEOJSON_1_GENERATE_FME_BUILD_NUM 19817
+GEOJSON_1_DATASET "$(DestDataset_GEOJSON_1)"
+#! END_DEST_HEADER
+#! START_WB_HEADER
 #! END_WB_HEADER
 #! END_HEADER
 
@@ -6328,6 +6755,7 @@ FME_STROKE_MAX_DEVIATION 0
 DEFAULT_MACRO DATASET_KEYWORD_SHAPEFILE_1 SHAPEFILE_1
 DEFAULT_MACRO DATASET_KEYWORD_CSV2_1 CSV2_1
 DEFAULT_MACRO DATASET_KEYWORD_TIFF_1 TIFF_1
+DEFAULT_MACRO DATASET_KEYWORD_GEOJSON_1 GEOJSON_1
 # -------------------------------------------------------------------------
 
 SHAPEFILE_1_READER_META_ATTRIBUTES fme_feature_type
@@ -6335,6 +6763,8 @@ SHAPEFILE_1_READER_META_ATTRIBUTES fme_feature_type
 # -------------------------------------------------------------------------
 
 MULTI_READER_CONTINUE_ON_READER_FAILURE No
+FME_BEGIN_PYTHON_ENC import<space>smtplib<lf>import<space>fme<lf>import<space>os<lf>import<space>datetime<lf>from<space>email.mime.text<space>import<space>MIMEText<lf>from<space>email.mime.base<space>import<space>MIMEBase<lf>from<space>email.mime.multipart<space>import<space>MIMEMultipart<lf>from<space>email<space>import<space>encoders<lf><lf>e-mail<space>=<space>fme.macroValues<openbracket><apos>e-mail<apos><closebracket><lf>haslo<space>=<space>fme.macroValues<openbracket><apos>has<u0142>o<apos><closebracket><lf>e-mail2<space>=<space>fme.macroValues<openbracket><apos>e-mail2<apos><closebracket><lf>powiat<space>=<space>fme.macroValues<openbracket><apos>nazwa-powiatu<apos><closebracket><lf>start<space>=<space>datetime.datetime.now<openparen><closeparen><lf>fme.macroValues<openbracket><apos>startup<apos><closebracket><space>=<space>start<lf>subject<space>=<space><apos>Informacja<space>-<space>FME<apos><lf>host<space>=<space><apos>smtp.gmail.com<apos><lf>port<space>=<space>587<lf><lf>msg<space>=<space>MIMEMultipart<openparen><closeparen><lf>msg<openbracket><apos>From<apos><closebracket><space>=<space>e-mail<lf>msg<openbracket><apos>To<apos><closebracket><space>=<space>e-mail2<lf>msg<openbracket><apos>Subject<apos><closebracket><space>=<space>subject<lf><lf>body<space>=<space><apos>Drogi<space>uzytkowniku<space><opencurly><closecurly><space>o<space>godzinie<space><opencurly><closecurly><space>rozpoczeto<space>przetwarzanie<space>danych<space>dla:<space><opencurly><closecurly>.<apos>.format<openparen>e-mail2<comma><space>start<comma><space>powiat<closeparen><lf>msg.attach<openparen>MIMEText<openparen>body<comma><space><apos>plain<apos><closeparen><closeparen><lf><lf>text<space>=<space>msg.as_string<openparen><closeparen><lf>server<space>=<space>smtplib.SMTP<openparen>host<comma><space>port<closeparen><lf>server.starttls<openparen><closeparen><lf>server.login<openparen>e-mail<comma><space>haslo<closeparen><lf><lf>try:<lf><space><space><space><space>server.sendmail<openparen>e-mail<comma><space>e-mail2<comma><space>text<closeparen><lf><space><space><space><space>print<openparen><apos>Wiadomosc<space>wyslana<apos><closeparen><lf>except:<lf><space><space><space><space>print<space><openparen><apos>Wiadomosc<space>nie<space>wyslana<apos><closeparen><lf>server.quit<openparen><closeparen>
+FME_END_PYTHON_ENC import<space>smtplib<lf>import<space>fme<lf>import<space>os<lf>import<space>json<lf>import<space>datetime<lf>from<space>email.mime.text<space>import<space>MIMEText<lf>from<space>email.mime.base<space>import<space>MIMEBase<lf>from<space>email.mime.multipart<space>import<space>MIMEMultipart<lf>from<space>email<space>import<space>encoders<lf><lf>status<space>=<space>fme.status<lf>errorMsg<space>=<space>fme.failureMessage<lf>logFile<space>=<space>fme.logFileName<lf><lf>e-mail<space>=<space>fme.macroValues<openbracket><apos>e-mail<apos><closebracket><lf>haslo<space>=<space>fme.macroValues<openbracket><apos>has<u0142>o<apos><closebracket><lf>e-mail2<space>=<space>fme.macroValues<openbracket><apos>e-mail2<apos><closebracket><lf>powiat<space>=<space>fme.macroValues<openbracket><apos>nazwa-powiatu<apos><closebracket><lf>start<space>=<space>fme.macroValues<openbracket><apos>startup<apos><closebracket><lf>koniec<space>=<space>datetime.datetime.now<openparen><closeparen><lf>fme.macroValues<openbracket><apos>shutdown<apos><closebracket><space>=<space>koniec<lf>czas<space>=<space>koniec<space>-<space>start<lf>host<space>=<space><apos>smtp.gmail.com<apos><lf>port<space>=<space>587<lf>subject<space>=<space><apos>BDP<space>-<space>wiadomosc<space>koncowa<space>procesu<space>w<space>FME<apos><lf>tiff<space>=<space>fme.macroValues<openbracket><apos>DestDataset_GEOTIFF<apos><closebracket><lf>csv<space>=<space>fme.macroValues<openbracket><apos>DestDataset_CSV2<apos><closebracket><lf>log<space>=<space>fme.macroValues<openbracket><apos>DestDataset_JSON<apos><closebracket><lf><lf>msg<space>=<space>MIMEMultipart<openparen><closeparen><lf>msg<openbracket><apos>From<apos><closebracket><space>=e-mail<lf>msg<openbracket><apos>To<apos><closebracket><space>=<space>e-mail2<lf>msg<openbracket><apos>Subject<apos><closebracket><space>=<space>subject<lf><lf>if<space>status<space><space>==<space>0:<lf><space><space><space><space>body<space>=<space><quote><quote><quote>Drogi<space>u<u017c>ytkowniku<space><opencurly><closecurly><comma><lf><lf>Przetwarzanie<space>danych<space>nie<space>powiod<u0142>o<space>si<u0119><space><opencurly><closecurly>.<space><lf><lf>Przetwarzanie<space>trwalo<space><opencurly><closecurly>.<lf><lf>Plik<space>z<space>logami<space>jako<space>za<u0142><u0105>cznik.<lf><space><space><space><space><lf>Z<space>powazaniem<comma><lf>Kacper<space>Py<u015b>niak<quote><quote><quote>.format<openparen>e-mail2<comma>powiat<comma>czas<closeparen><lf><space><space><space><space>msg.attach<openparen>MIMEText<openparen>body<comma><space><apos>plain<apos><closeparen><closeparen><lf><space><space><space><space><lf><space><space><space><space>logii<space>=<space>MIMEText<openparen>json.dumps<openparen>log<closeparen><closeparen><lf><space><space><space><space>logii.add_header<openparen><quote>Content-Disposition<quote><comma><space><quote>attachment<semicolon><space>filename=logi.json<quote><closeparen><lf><space><space><space><space>msg.attach<openparen>logii<closeparen><lf><space><space><space><space><lf>elif<space>status<space>==<space>1:<space><space><space><space><lf><space><space><space><space>body<space>=<space><quote><quote><quote>Drogi<space>u<u017c>ytkowniku<space><opencurly><closecurly><comma><lf><lf>O<space>godzinie<space><opencurly><closecurly><space>zakonczono<space>przetwarzanie<space>danych<space>dla<space>powiat<space><opencurly><closecurly>.<space><lf><lf>Przetwarzanie<space>trwalo<space><opencurly><closecurly>.<space><lf><lf>Plik<space>z<space>obliczonym<space>NDVI<space>dla<space>powiat<space><opencurly><closecurly><space>oraz<space>statystyki<space>w<space>zalacznikach.<lf><space><space><space><space><lf>Z<space>powa<u017c>aniem<comma><lf>Kacper<space>Py<u015b>niak<quote><quote><quote>.format<openparen>e-mail2<comma>teraz<comma>powiat<comma>czas<comma>powiat<closeparen><lf><space><space><space><space>msg.attach<openparen>MIMEText<openparen>body<comma><space><apos>plain<apos><closeparen><closeparen><lf><space><space><space><space>tifff<space>=<space>open<openparen>tiff+r<quote><backslash>Powiat.tif<quote><comma><space><apos>rb<apos><closeparen><lf><space><space><space><space>part<space>=<space>MIMEBase<openparen><quote>application<quote><comma><space><quote>octet-stream<quote><closeparen><lf><space><space><space><space>part.set_payload<openparen>tifff.read<openparen><closeparen><closeparen><lf><space><space><space><space>encoders.encode_base64<openparen>part<closeparen><lf><space><space><space><space>part.add_header<openparen><quote>Content-Disposition<quote><comma><space><quote>attachment<semicolon><space>filename=Powiat.tif<quote><closeparen><lf><space><space><space><space>msg.attach<openparen>part<closeparen><lf><space><space><space><space>csvv<space>=<space>open<openparen>csv+r<quote><backslash>Powiat_statystyki.csv<quote><comma><space><apos>rb<apos><closeparen><lf><space><space><space><space>part2<space>=<space>MIMEBase<openparen><quote>application<quote><comma><space><quote>vnd.ms-excel<quote><closeparen><lf><space><space><space><space>part2.set_payload<openparen>csvv.read<openparen><closeparen><closeparen><lf><space><space><space><space>encoders.encode_base64<openparen>part2<closeparen><lf><space><space><space><space>part2.add_header<openparen><quote>Content-Disposition<quote><comma><space><quote>attachment<semicolon><space><space>filename=Powiat_statystyki.csv<quote><closeparen><lf><space><space><space><space>msg.attach<openparen>part2<closeparen><lf><lf>text<space>=<space>msg.as_string<openparen><closeparen><lf>server<space>=<space>smtplib.SMTP<openparen>host<comma><space>port<closeparen><lf>server.starttls<openparen><closeparen><lf>server.login<openparen>e-mail<comma><space>haslo<closeparen><lf><lf>try:<lf><space><space><space><space>server.sendmail<openparen>e-mail<comma><space>e-mail2<comma><space>text<closeparen><lf><space><space><space><space>print<openparen><apos>Wiadomosc<space>koncowa<space>wys<u0142>ana<apos><closeparen><lf>except:<lf><space><space><space><space>print<space><openparen><apos>Wiadomosc<space>koncowa<space>nie<space>wys<u0142>a<u0142>ana<apos><closeparen><lf>server.quit<openparen><closeparen>
 
 # -------------------------------------------------------------------------
 
@@ -6350,6 +6780,11 @@ SHAPEFILE_1_MERGE_DEF SHAPEFILE_1::Powiaty EXACT Powiaty
 
 FACTORY_DEF * TeeFactory    FACTORY_NAME "Powiaty (SHAPEFILE_1) Splitter"    INPUT FEATURE_TYPE Powiaty    OUTPUT FEATURE_TYPE Powiaty_SHAPEFILE_1
 DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+FACTORY_DEF * LogMessageFactory    FACTORY_NAME LogMessageStreamer    INPUT TRIGGER FEATURE_TYPE *    MESSAGE_LEVELS INFORM STATRP STATS WARN ERROR FATAL    CAPTURE_FROM LOGFILE LOGGER    MAX_MESSAGES_PER_FEATURE 1    OUTPUT_ATTRIBUTE_NAME _log    OUTPUT LOGFILE FEATURE_TYPE LogMessageStreamer_LOGFILE    OUTPUT TRIGGER FEATURE_TYPE *
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "LogMessageStreamer_LOGFILE Brancher -1 34"   INPUT FEATURE_TYPE LogMessageStreamer_LOGFILE   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
 # -------------------------------------------------------------------------
 FACTORY_DEF * TestFactory    FACTORY_NAME Tester    INPUT  FEATURE_TYPE Powiaty_SHAPEFILE_1    CASE_SENSITIVE_TEST @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>JPT_NAZWA_<closeparen>,Tester) CONTAINS_REGEX @EvaluateExpression(FDIV,STRING_ENCODED,$(nazwa-powiatu$encode),Tester) ENCODED    BOOLEAN_OPERATOR OR    COMPOSITE_TEST_EXPR "1"    FEATURE_TABLE_SHIM_SUPPORT Yes    PRESERVE_FEATURE_ORDER PER_OUTPUT_PORT    OUTPUT PASSED FEATURE_TYPE Tester_PASSED
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Tester PASSED Splitter"   INPUT FEATURE_TYPE Tester_PASSED   OUTPUT FEATURE_TYPE Tester_PASSED_0_M1wqjkih4e0=   OUTPUT FEATURE_TYPE Tester_PASSED_1_8t6d0F2OYOU=
@@ -6371,7 +6806,7 @@ MACRO $(SentinelDownloader_WORKSPACE_NAME)_zip_output $(FME_MF_DIR)sentinel.zip
 MACRO $(SentinelDownloader_WORKSPACE_NAME)_platform Sentinel-2
 DEFAULT_MACRO SentinelDownloader_WORKSPACE_NAME ""
 INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(SentinelDownloader_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(SentinelDownloader_WORKSPACE_NAME)}]
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Initiator1609964787 Input Splitter"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Initiator"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Initiator"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Initiator1609968060 Input Splitter"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Initiator"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Initiator"
 # -------------------------------------------------------------------------
 FACTORY_DEF * TextEncoderFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_TextEncoder    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Initiator"    ACTION BASE64_ENCODE    RESULT_ATTR "_key_encoded"    VALUE_TO_ENCODE "@EvaluateExpression(FDIV,STRING_ENCODED,$($(SentinelDownloader_WORKSPACE_NAME)_key_name$encode):$($(SentinelDownloader_WORKSPACE_NAME)_key_pw$encode),$(SentinelDownloader_WORKSPACE_NAME)_TextEncoder)"    OUTPUT OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TextEncoder_OUTPUT"
 # -------------------------------------------------------------------------
@@ -6395,8 +6830,8 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Ge
 FACTORY_DEF $(INSTANCE_FILTERING) TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_InstanceTest    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Input___    TEST @Geometry(IS_GEOMETRY_INSTANCE) == 1    OUTPUT PASSED FEATURE_TYPE $(OUTPUT_INSTANCE_FTYPE)    OUTPUT FAILED FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Input___
 FACTORY_DEF $(COLLECTION_HANDLING) TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_CollectionTest    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Input___    TEST &fme_type == "fme_collection"    OUTPUT FAILED FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Not_Collection___    OUTPUT PASSED FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Collection___
 FACTORY_DEF $(COLLECTION_HANDLING) DeaggregateFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_Deagg    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Collection___    HOMOGENIZE_COLLECTIONS YES    RECURSIVE YES    SET_FME_TYPE YES    INSTANTIATE_GEOMETRY_INSTANCES_NEW <Unused>    OUTPUT POINT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    OUTPUT LINE FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    OUTPUT POLYGON FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    OUTPUT DONUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    OUTPUT AGGREGATE FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_RouterPrepper    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Not_Collection___    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Input___    OUTPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Prepped___        $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_7741139944257_targetFeatureType @Lookup($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_RouterTable,&fme_type)
-FACTORY_DEF * TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_Router    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Prepped___    TEST @Value($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_7741139944257_targetFeatureType) != "not_selected"    OUTPUT PASSED FEATURE_TYPE * @FeatureType(@Value($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_7741139944257_targetFeatureType))                                 @RemoveAttributes($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_7741139944257_targetFeatureType)    OUTPUT FAILED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_<UNFILTERED>"        @RemoveAttributes($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_7741139944257_targetFeatureType)
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_RouterPrepper    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___HomogeneousAggregate___    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Not_Collection___    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Input___    OUTPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Prepped___        $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_77411399442514_targetFeatureType @Lookup($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_RouterTable,&fme_type)
+FACTORY_DEF * TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_Router    INPUT FEATURE_TYPE $(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter___Prepped___    TEST @Value($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_77411399442514_targetFeatureType) != "not_selected"    OUTPUT PASSED FEATURE_TYPE * @FeatureType(@Value($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_77411399442514_targetFeatureType))                                 @RemoveAttributes($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_77411399442514_targetFeatureType)    OUTPUT FAILED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_<UNFILTERED>"        @RemoveAttributes($(SentinelDownloader_WORKSPACE_NAME)_GeometryFilter_3e7cfb65_5379_40f3_80d5_77411399442514_targetFeatureType)
 # -------------------------------------------------------------------------
 # The default behaviour is to abort on any feature entering the transformer.
 # If Workbench has set the _WB_BYPASS_TERMINATION macro to a value of "Yes",
@@ -6416,13 +6851,13 @@ FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Te
 # -------------------------------------------------------------------------
 MACRO casemac
 INCLUDE [ if { {NO} == {NO} } { puts {MACRO casemac -nocase}} ]
-Tcl2 proc $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_567021e1_ccaf_4e92_9051_8ee35bc9981e7_replacer { findText replaceText invalidValue} {     set attrs [split \"wkt_object\" {,}];     set findValue [FME_DecodeText $findText];     set replaceValue [FME_DecodeText $replaceText];     foreach attr $attrs {       set attrVal [FME_GetAttribute $attr];       set noMatch true;       if {{NO} == {YES}} {         set newAttrVal [FME_ReplaceRegex $(casemac) $findValue $attrVal $replaceValue];       } else {         set newAttrVal [string map $(casemac) [list $findValue $replaceValue] $attrVal];       };       if { $newAttrVal ne $attrVal } {         set noMatch false;         FME_SetAttribute $attr $newAttrVal;       };       if {$noMatch} {          if { $invalidValue == {FME_NULL_VALUE} } {             FME_SetAttributeNull $attr;          } elseif { $invalidValue != {_FME_NO_OP_} }  {             FME_SetAttribute $attr [FME_DecodeText $invalidValue];          };       };     }; }
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_Point"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_OUTPUT"         @Tcl2("$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_567021e1_ccaf_4e92_9051_8ee35bc9981e7_replacer {POINT<openparen>} {} {_FME_NO_OP_}")
+Tcl2 proc $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_567021e1_ccaf_4e92_9051_8ee35bc9981e14_replacer { findText replaceText invalidValue} {     set attrs [split \"wkt_object\" {,}];     set findValue [FME_DecodeText $findText];     set replaceValue [FME_DecodeText $replaceText];     foreach attr $attrs {       set attrVal [FME_GetAttribute $attr];       set noMatch true;       if {{NO} == {YES}} {         set newAttrVal [FME_ReplaceRegex $(casemac) $findValue $attrVal $replaceValue];       } else {         set newAttrVal [string map $(casemac) [list $findValue $replaceValue] $attrVal];       };       if { $newAttrVal ne $attrVal } {         set noMatch false;         FME_SetAttribute $attr $newAttrVal;       };       if {$noMatch} {          if { $invalidValue == {FME_NULL_VALUE} } {             FME_SetAttributeNull $attr;          } elseif { $invalidValue != {_FME_NO_OP_} }  {             FME_SetAttribute $attr [FME_DecodeText $invalidValue];          };       };     }; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_Point"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_OUTPUT"         @Tcl2("$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_567021e1_ccaf_4e92_9051_8ee35bc9981e14_replacer {POINT<openparen>} {} {_FME_NO_OP_}")
 # -------------------------------------------------------------------------
 MACRO casemac
 INCLUDE [ if { {NO} == {NO} } { puts {MACRO casemac -nocase}} ]
-Tcl2 proc $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_b8219d11_bdf5_4339_a2cf_12b278250ac67_replacer { findText replaceText invalidValue} {     set attrs [split \"wkt_object\" {,}];     set findValue [FME_DecodeText $findText];     set replaceValue [FME_DecodeText $replaceText];     foreach attr $attrs {       set attrVal [FME_GetAttribute $attr];       set noMatch true;       if {{NO} == {YES}} {         set newAttrVal [FME_ReplaceRegex $(casemac) $findValue $attrVal $replaceValue];       } else {         set newAttrVal [string map $(casemac) [list $findValue $replaceValue] $attrVal];       };       if { $newAttrVal ne $attrVal } {         set noMatch false;         FME_SetAttribute $attr $newAttrVal;       };       if {$noMatch} {          if { $invalidValue == {FME_NULL_VALUE} } {             FME_SetAttributeNull $attr;          } elseif { $invalidValue != {_FME_NO_OP_} }  {             FME_SetAttribute $attr [FME_DecodeText $invalidValue];          };       };     }; }
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_OUTPUT"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_OUTPUT"         @Tcl2("$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_b8219d11_bdf5_4339_a2cf_12b278250ac67_replacer {<closeparen>} {} {_FME_NO_OP_}")
+Tcl2 proc $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_b8219d11_bdf5_4339_a2cf_12b278250ac614_replacer { findText replaceText invalidValue} {     set attrs [split \"wkt_object\" {,}];     set findValue [FME_DecodeText $findText];     set replaceValue [FME_DecodeText $replaceText];     foreach attr $attrs {       set attrVal [FME_GetAttribute $attr];       set noMatch true;       if {{NO} == {YES}} {         set newAttrVal [FME_ReplaceRegex $(casemac) $findValue $attrVal $replaceValue];       } else {         set newAttrVal [string map $(casemac) [list $findValue $replaceValue] $attrVal];       };       if { $newAttrVal ne $attrVal } {         set noMatch false;         FME_SetAttribute $attr $newAttrVal;       };       if {$noMatch} {          if { $invalidValue == {FME_NULL_VALUE} } {             FME_SetAttributeNull $attr;          } elseif { $invalidValue != {_FME_NO_OP_} }  {             FME_SetAttribute $attr [FME_DecodeText $invalidValue];          };       };     }; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_OUTPUT"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_OUTPUT"         @Tcl2("$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_b8219d11_bdf5_4339_a2cf_12b278250ac614_replacer {<closeparen>} {} {_FME_NO_OP_}")
 # -------------------------------------------------------------------------
 FACTORY_DEF * HTTPFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_HTTPCaller_5       INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StringReplacer_2_OUTPUT"    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_Polygon"    TARGET_URL "@EvaluateExpression(FDIV,STRING_ENCODED,https:<solidus><solidus>scihub.copernicus.eu<solidus>dhus<solidus>search?q=<openparen>footprint:<quote>Intersects<openparen><at>Value<openparen>wkt_object<closeparen><closeparen><quote><space>AND<space>platformname:$($(SentinelDownloader_WORKSPACE_NAME)_platform$encode)<space><space>AND<space><at>Value<openparen>product_type<closeparen><space>AND<space><at>Value<openparen>date_param<closeparen><space>AND<space>cloudcoverpercentage:<openbracket>0<space>TO<space>$($(SentinelDownloader_WORKSPACE_NAME)_CloudCover$encode)<closebracket><closeparen>,$(SentinelDownloader_WORKSPACE_NAME)_HTTPCaller_5)"    HTTP_METHOD GET    SAVE_FILE NO    OUTPUT_FILENAME "<Unused>"    OUTPUT_DIRECTORY "<Unused>"    FILE_EXTENSION "<Unused>"    TARGET_ATTR "_response_body"    FILE_PATH_ATTR "<Unused>"    UPLOAD_FILE "<Unused>"    UPLOAD_BODY "<Unused>"    MULTIPART_UPLOAD <Unused>    UPLOAD_CONTENT_TYPE "<Unused>"    COMBINED_MULTIPART_TABLE    REQUEST_HEADER_TABLE Authorization;@EvaluateExpression(FDIV,STRING_ENCODED,Basic<space><at>Value<openparen>_key_encoded<closeparen>,$(SentinelDownloader_WORKSPACE_NAME)_HTTPCaller_5)    ADDITIONAL_URL_PARAMETERS    AUTH_USERNAME "<Unused>"    AUTH_PASSWORD "<Unused>"    AUTH_METHOD "<Unused>"    TARGET_ATTRIBUTE_ENCODING auto-detect    RESPONSE_HEADER_LIST_ATTR ""    STATUS_CODE_ATTR "_http_status_code"    ERROR_ATTR "_error"    CONNECTION_TIMEOUT_LENGTH 60    TRANSFER_TIMEOUT_LENGTH 90    FOLLOW_REDIRECTS Yes    VERIFY_SSL_CERTIFICATES Yes    NAMED_CONNECTION "<Unused>"    USE_COOKIES No    OUTPUT OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_HTTPCaller_5_Output"    OUTPUT REJECTED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_HTTPCaller_5_<REJECTED>"
 DEFAULT_MACRO _WB_BYPASS_TERMINATION No
@@ -6474,7 +6909,7 @@ FACTORY_DEF * TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_T
 FACTORY_DEF * TestFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Tester_6    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_2_FAILED"    CASE_INSENSITIVE_TEST @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>xml_fragment<closeparen>,$(SentinelDownloader_WORKSPACE_NAME)_Tester_6) CONTAINS _MSIL1C_ ENCODED    BOOLEAN_OPERATOR AND    COMPOSITE_TEST_EXPR "<Unused>"    OUTPUT PASSED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_PASSED"    OUTPUT FAILED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_FAILED"
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6 PASSED Splitter"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_PASSED"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_PASSED_0_2wDJ2thxkXc="   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_PASSED_1_JvzDlcPjfkQ="
 # -------------------------------------------------------------------------
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_3_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_FAILED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_3_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger_3:<space>Unfortunately<comma><space>the<space>search<space>results<space>do<space>not<space>match<space>the<space>search<space>criteria.","<Unused>","20","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_3_00e3b762_bb95_44ea_9da9_71e4fbb3d3667)
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_3_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_FAILED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_3_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger_3:<space>Unfortunately<comma><space>the<space>search<space>results<space>do<space>not<space>match<space>the<space>search<space>criteria.","<Unused>","20","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_3_00e3b762_bb95_44ea_9da9_71e4fbb3d36614)
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Logger_3 LOGGED Transformer Output Nuker"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_3_LOGGED"
 # -------------------------------------------------------------------------
 FACTORY_DEF * XFMapFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_XMLFlattener_2    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_6_PASSED_0_2wDJ2thxkXc="    XML_STREAM "xml_fragment"    XFMAP_FEATURE_PATHS_EXPRESSION "link"    XFMAP_FEATURE_PATHS_STRUCTURE "<lt>structure<space><space><lf>separator=<quote>.<quote><space><lf>map-empty-elements=<quote>yes<quote><space><lf>matched-prefix=<quote>attributes<quote><space><lf>matched-attributes=<quote>yes<quote><space><lf>cardinality=<quote>+<opencurly>?<closecurly><quote><lf>except-expression=<quote><quote><lf>structure-prefix=<quote><quote><lf>child-position-attribute=<quote><quote><lf>attribute-identifier=<quote><quote><lf>ui-mode=<quote>basic<quote><solidus><gt>"    OUTPUT_ONE_FEATURE_PER_INPUT yes    OUTPUT MAPPED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_XMLFlattener_2_OUTPUT"    OUTPUT INVALID FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_XMLFlattener_2_<REJECTED>"
@@ -6525,7 +6960,7 @@ MACRO $(ZipExtractor_WORKSPACE_NAME)_EXT_S
 MACRO $(ZipExtractor_WORKSPACE_NAME)_EXT_N 
 DEFAULT_MACRO ZipExtractor_WORKSPACE_NAME ""
 INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(ZipExtractor_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(ZipExtractor_WORKSPACE_NAME)}]
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_Input1609964787 Input Splitter"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Input"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Input"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_Input1609968060 Input Splitter"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Input"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Input"
 # -------------------------------------------------------------------------
 Tcl2 proc $(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher_doFetch {} {    foreach {name val} {"__unzipper.zip_path {$($(ZipExtractor_WORKSPACE_NAME)_ZIP_PATH$encode)} __unzipper.root_folder {$($(ZipExtractor_WORKSPACE_NAME)_ROOT_FOLDER$encode)} __unzipper.replace {$($(ZipExtractor_WORKSPACE_NAME)_REPLACE$encode)} __unzipper.recursive {$($(ZipExtractor_WORKSPACE_NAME)_RECURSIVE$encode)} __unzipper.preserve {$($(ZipExtractor_WORKSPACE_NAME)_PRESERVE$encode)} __unzipper.ext_s {$($(ZipExtractor_WORKSPACE_NAME)_EXT_S$encode)} __unzipper.ext_n {$($(ZipExtractor_WORKSPACE_NAME)_EXT_N$encode)}"} {         if { [string match {*<at>*} $val] == 1 } {             set val [FME_Execute EvaluateExpression {STRING} $val {$(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher}];         } elseif {[string match {*FME_CONDITIONAL*} $val] == 1} {             set val [FME_Execute EvaluateExpression {STRING} $val {$(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher}];         } else {             set val [FME_DecodeTextOrAttr $val];         };       FME_SetAttribute [FME_DecodeText $name] $val    } }
 FACTORY_DEF * TeeFactory    FACTORY_NAME $(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher    INPUT  FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Input"    OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher_OUTPUT"         @Tcl2($(ZipExtractor_WORKSPACE_NAME)_ParameterFetcher_doFetch)
@@ -6553,9 +6988,9 @@ FACTORY_DEF {*} TeeFactory    FACTORY_NAME $(ZipExtractor_WORKSPACE_NAME)_Attrib
 # somesuch.
 DEFAULT_MACRO _WB_BYPASS_TERMINATION No
 FACTORY_DEF * TestFactory    FACTORY_NAME $(ZipExtractor_WORKSPACE_NAME)_Terminator    INPUT  FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeRemover_OUTPUT"    TEST "$(_WB_BYPASS_TERMINATION)" == Yes    OUTPUT PASSED FEATURE_TYPE __WB_BYPASS_TERMINATOR__       @SupplyAttributes(_wb_termination_feature_type,@FeatureType())       @SupplyAttributes(ENCODED,_wb_termination_message,"@EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>_error_message<closeparen>,$(ZipExtractor_WORKSPACE_NAME)_Terminator)")       @SupplyAttributes(_wb_termination_xformer,"$(ZipExtractor_WORKSPACE_NAME)_Terminator")       @SupplyAttributes(_wb_termination_feature,Yes)    OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED,"@EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>_error_message<closeparen>,$(ZipExtractor_WORKSPACE_NAME)_Terminator)")
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_File1609964787 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_file"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_File" @RemoveAttributes(__unzipper.flag,_error_message)
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_<Rejected>1609964787 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_reject"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_<Rejected>" @RemoveAttributes(path_unix,path_windows,path_depth,__unzipper.flag,_error_message)
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_Directory1609964787 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_directory"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Directory" @RemoveAttributes(__unzipper.flag,_error_message)
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_File1609968060 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_file"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_File" @RemoveAttributes(__unzipper.flag,_error_message)
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_<Rejected>1609968060 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_reject"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_<Rejected>" @RemoveAttributes(path_unix,path_windows,path_depth,__unzipper.flag,_error_message)
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(ZipExtractor_WORKSPACE_NAME)_Directory1609968060 Output Collector"   INPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_AttributeFilter_directory"   OUTPUT FEATURE_TYPE "$(ZipExtractor_WORKSPACE_NAME)_Directory" @RemoveAttributes(__unzipper.flag,_error_message)
 INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(ZipExtractor_WORKSPACE_NAME))}]
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_ZipExtractor_2 File Output Renamer/Nuker"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_ZipExtractor_2_File"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_ZipExtractor_2_File"
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_ZipExtractor_2 Directory Output Renamer/Nuker"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_ZipExtractor_2_Directory"
@@ -6649,16 +7084,16 @@ FACTORY_DEF * XFMapFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_
 DEFAULT_MACRO _WB_BYPASS_TERMINATION No
 FACTORY_DEF * TeeFactory FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_XMLFragmenter_2_<Rejected>" INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_XMLFragmenter_2_<REJECTED>"  OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, SentinelDownloader_XMLFragmenter_2<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
 # -------------------------------------------------------------------------
-DEFAULT_MACRO __$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_GROUP_BY
+DEFAULT_MACRO __$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_GROUP_BY
 # If the cumulative port is connected, the _PORT_SPECIFIED macro
-MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_PORT_SPECIFIED no
+MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_PORT_SPECIFIED no
 # Force splitting of feature tables when the CUMULATIVE port is connected
-MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_SPLIT_FEATURE_TABLES Yes
-INCLUDE [if { {$($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_PORT_SPECIFIED)} == "no" } {     puts {MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_SPLIT_FEATURE_TABLES No} }
+MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_SPLIT_FEATURE_TABLES Yes
+INCLUDE [if { {$($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_PORT_SPECIFIED)} == "no" } {     puts {MACRO $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_SPLIT_FEATURE_TABLES No} }
 DYNAMIC_FUNCTION_CONFIGURATION Python FMEOBJECTS
 DYNAMIC_FUNCTION_CONFIGURATION Python import StatisticsCalculator
-DYNAMIC_FUNCTION_CONFIGURATION Python "StatisticsCalculator.connectTransformer(    '$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator',{     'GROUP_BY_MACRO':'__$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_GROUP_BY',     'STATS_ATTRS':'xml_matched_element',     'COUNT_ATTR':'_count',     'COMPUTE_HISTOGRAM':'NO',     'HISTO_ATTR':'<Unused>',     'PREPEND_ATTR_NAME':'No',     'encoded_result_attrs':True,     'cumulative_mode':'$($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_PORT_SPECIFIED)',     None:None})"
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_InputProcessor    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_XMLFragmenter_2_FRAGMENTS"    SPLIT_FEATURE_TABLES $($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c487_SPLIT_FEATURE_TABLES)    OUTPUT FEATURE_TYPE __ORIGINAL__       @Python(StatisticsCalculator.recordFeature,$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator)
+DYNAMIC_FUNCTION_CONFIGURATION Python "StatisticsCalculator.connectTransformer(    '$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator',{     'GROUP_BY_MACRO':'__$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_GROUP_BY',     'STATS_ATTRS':'xml_matched_element',     'COUNT_ATTR':'_count',     'COMPUTE_HISTOGRAM':'NO',     'HISTO_ATTR':'<Unused>',     'PREPEND_ATTR_NAME':'No',     'encoded_result_attrs':True,     'cumulative_mode':'$($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_PORT_SPECIFIED)',     None:None})"
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_InputProcessor    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_XMLFragmenter_2_FRAGMENTS"    SPLIT_FEATURE_TABLES $($(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_e863305a_8016_4bd7_8712_2292c0d48c4814_SPLIT_FEATURE_TABLES)    OUTPUT FEATURE_TYPE __ORIGINAL__       @Python(StatisticsCalculator.recordFeature,$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator)
 FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_UnneededInputNuker    INPUT FEATURE_TYPE __ORIGINAL__    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_COMPLETE"
 FACTORY_DEF * SortFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_CompleteOutputter    INPUT FEATURE_TYPE __UNUSED_INPUT_TO_GUARANTEE_FACTORY_DOESNT_CONSUME_EVERYTHING__    INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_COMPLETE"    OUTPUT SORTED FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_COMPLETE"       @Python(StatisticsCalculator.summarizeStatistics,$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator,__ORIGINAL__)
 FACTORY_DEF * CreationFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_SummaryCreator    CREATE_AT_END    NUMBER_TO_CREATE 1    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_StatisticsCalculator_SUMMARY"
@@ -6676,25 +7111,25 @@ FACTORY_DEF {*} ReferenceFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_
 DEFAULT_MACRO _WB_BYPASS_TERMINATION No
 FACTORY_DEF * TeeFactory FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_FeatureMerger_<Rejected>" INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_FeatureMerger_<REJECTED>"  OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, SentinelDownloader_FeatureMerger<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
 # -------------------------------------------------------------------------
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_FeatureMerger_MERGED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger:<space>@EvaluateExpression(FDIV,STRING_ENCODED,Your<space>request<space>delivers<space><at>Value<openparen>_count<closeparen><space>result<openparen>s<closeparen>.<lf>The<space>request<space>delivers<space>images<space>at<space>the<space>following<space>dates:<space><at>Value<openparen>_concatenated<closeparen>,$(SentinelDownloader_WORKSPACE_NAME)_Logger)","<Unused>","100","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_5cd4edd3_c1f0_4958_b684_f33638fd837b7)
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_FeatureMerger_MERGED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger:<space>@EvaluateExpression(FDIV,STRING_ENCODED,Your<space>request<space>delivers<space><at>Value<openparen>_count<closeparen><space>result<openparen>s<closeparen>.<lf>The<space>request<space>delivers<space>images<space>at<space>the<space>following<space>dates:<space><at>Value<openparen>_concatenated<closeparen>,$(SentinelDownloader_WORKSPACE_NAME)_Logger)","<Unused>","100","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_5cd4edd3_c1f0_4958_b684_f33638fd837b14)
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Logger LOGGED Transformer Output Nuker"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_LOGGED"
 # -------------------------------------------------------------------------
-FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_2_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_FAILED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_2_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger_2:<space>Unfortunately<comma><space>there<space>is<space>no<space>L2A<space>data<space>availabe.<space>Try<space>to<space>choose<space>the<space>option<space><quote>Level<space>1C<quote><space>at<space>the<space><quote>Product<space>Level<quote><space>parameter.","<Unused>","20","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_2_0891497c_50f8_42c1_a578_3fe8e9d69f787)
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(SentinelDownloader_WORKSPACE_NAME)_Logger_2_Logger    INPUT  FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Tester_FAILED"    OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_2_LOGGED"                  @Log(ENCODED, "<dollar><openparen>SentinelDownloader_WORKSPACE_NAME<closeparen>_Logger_2:<space>Unfortunately<comma><space>there<space>is<space>no<space>L2A<space>data<space>availabe.<space>Try<space>to<space>choose<space>the<space>option<space><quote>Level<space>1C<quote><space>at<space>the<space><quote>Product<space>Level<quote><space>parameter.","<Unused>","20","",WARN,NONE,$(SentinelDownloader_WORKSPACE_NAME)_Logger_2_0891497c_50f8_42c1_a578_3fe8e9d69f7814)
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Logger_2 LOGGED Transformer Output Nuker"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Logger_2_LOGGED"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_11609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B01"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B01"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_1"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_21609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B02"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B02"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_2"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_31609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B03"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B03"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_3"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_41609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B04"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B04"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_4"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_51609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B05"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B05"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_5"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_61609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B06"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B06"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_6"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_71609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B07"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B07"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_7"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_81609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B08"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B08"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_8"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_91609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B09"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B09"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_9"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_101609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B10"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B10"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_10"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_111609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B11"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B11"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_11"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_121609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B12"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B12"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_12"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_8A1609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B8A"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B8A"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_8A"
-FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_TCI1609964787 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_TCI"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_TCI"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TCI"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_11609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B01"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B01"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_1"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_21609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B02"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B02"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_2"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_31609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B03"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B03"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_3"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_41609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B04"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B04"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_4"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_51609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B05"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B05"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_5"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_61609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B06"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B06"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_6"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_71609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B07"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B07"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_7"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_81609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B08"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B08"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_8"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_91609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B09"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B09"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_9"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_101609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B10"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B10"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_10"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_111609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B11"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B11"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_11"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_121609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B12"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B12"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_12"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_Band_8A1609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_B8A"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_B8A"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_Band_8A"
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(SentinelDownloader_WORKSPACE_NAME)_TCI1609968060 Output Collector"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_4_TCI"   INPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TestFilter_5_TCI"   OUTPUT FEATURE_TYPE "$(SentinelDownloader_WORKSPACE_NAME)_TCI"
 INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(SentinelDownloader_WORKSPACE_NAME))}]
 FACTORY_DEF * TeeFactory   FACTORY_NAME "SentinelDownloader Band_1 Output Renamer/Nuker"   INPUT FEATURE_TYPE SentinelDownloader_Band_1
 FACTORY_DEF * TeeFactory   FACTORY_NAME "SentinelDownloader Band_2 Output Renamer/Nuker"   INPUT FEATURE_TYPE SentinelDownloader_Band_2
@@ -6780,12 +7215,14 @@ DEFAULT_MACRO _WB_BYPASS_TERMINATION No
 FACTORY_DEF * TeeFactory FACTORY_NAME RasterStatisticsCalculator_<Rejected> INPUT FEATURE_TYPE RasterStatisticsCalculator_<REJECTED>  OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, RasterStatisticsCalculator<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC RasterStatisticsCalculator_OUTPUT TO CSV2 __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>Powiaty<closeparen> GEOMETRY    ROUTE FME_GENERIC Clipper_INSIDE_1_WdTwwzY43qU= TO TIFF __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,1,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>Powiaty<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC RasterStatisticsCalculator_OUTPUT TO CSV2 __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>Powiat_statystyki<closeparen> GEOMETRY    ROUTE FME_GENERIC Clipper_INSIDE_1_WdTwwzY43qU= TO TIFF __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,1,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>Powiat<closeparen> GEOMETRY    ROUTE FME_GENERIC LogMessageStreamer_LOGFILE TO GEOJSON __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,2,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>Powiaty<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
 # -------------------------------------------------------------------------
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
 
 # -------------------------------------------------------------------------
-CSV2_1_DEF Powiaty   csv_existing_file_handling   Yes   csv_write_field_names        firstrow   _clipped                     string   band0.min                    string   band0.stdev                  string
+CSV2_1_DEF Powiat_statystyki   csv_existing_file_handling   Yes   csv_write_field_names        firstrow   _clipped                     string   band0.min                    string   band0.stdev                  string
 # -------------------------------------------------------------------------
-TIFF_1_DEF Powiaty   tiff_world_file_generation   yes   tiff_create_tiled_files      no   tiff_tile_size_x             ""   tiff_tile_size_y             ""   tiff_compression_method      none   tiff_jpeg_compression_level  25   tiff_tab_file_generation     no   tiff_number_of_bits_per_cell ""   tiff_enable_bigtiff          no   tiff_interleaving_type       BIP   tiff_photometric_interpretation Auto   tiff_byte_order              machine   tiff_calculate_minmax_tifftags no   tiff_generate_pyramids       NO   _clipped                     char(200)
+TIFF_1_DEF Powiat   tiff_world_file_generation   yes   tiff_create_tiled_files      no   tiff_tile_size_x             ""   tiff_tile_size_y             ""   tiff_compression_method      none   tiff_jpeg_compression_level  25   tiff_tab_file_generation     no   tiff_number_of_bits_per_cell ""   tiff_enable_bigtiff          no   tiff_interleaving_type       BIP   tiff_photometric_interpretation Auto   tiff_byte_order              machine   tiff_calculate_minmax_tifftags no   tiff_generate_pyramids       NO   _clipped                     char(200)
+# -------------------------------------------------------------------------
+GEOJSON_1_DEF Powiaty   _log{}.message               string   _log{}.level                 string   _log{}.number                string   _log{}.time                  string   _log{}.cpu_time              string   _log.message                 string   _log.level                   string   _log.number                  string   _log.time                    string   _log.cpu_time                string
